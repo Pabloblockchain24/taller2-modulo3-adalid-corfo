@@ -149,6 +149,21 @@ El **Event Loop** es el mecanismo que permite que JavaScript maneje múltiples t
 
 Este mecanismo asegura que las tareas asíncronas se manejen de manera ordenada y eficiente, sin bloquear la ejecución del código principal.
 
+## Uso de Variables y su scope
+
+En este proyecto, se utilizan las palabras clave `let` y `const` para declarar variables. A continuación, se describe su uso y alcance.
+
+### let
+- `let` se utiliza para declarar variables cuyo valor puede cambiar posteriormente.
+- **Scope:** Su alcance está limitado al bloque `{}` en el que se declara. Esto significa que no se puede acceder a la variable fuera de dicho bloque.
+   
+### const
+- `const` se utiliza para declarar constantes, es decir, valores que no pueden ser reasignados una vez definidos.
+- **Scope:** Al igual que `let`, su alcance está limitado al bloque `{}` en el que se declara.
+
+La diferencia en el uso de let y const radica en la posibilidad de reasignar el valor de la variable. 
+
+
 
 ## Créditos
 
