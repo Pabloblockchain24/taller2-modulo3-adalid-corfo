@@ -163,7 +163,29 @@ En este proyecto, se utilizan las palabras clave `let` y `const` para declarar v
 
 La diferencia en el uso de let y const radica en la posibilidad de reasignar el valor de la variable. 
 
+## Utilización de debugger para rasteo de posibles errores
 
+En este proyecto, se utiliza el `debugger` para rastrear posibles errores dentro del código y analizar el flujo de ejecución. A continuación, se describe su uso y ejemplos.
+
+### ¿Qué es el Debugger?
+El `debugger` es una palabra clave en JavaScript que detiene la ejecución del programa en el momento en que se encuentra, permitiendo inspeccionar variables, valores y el estado del programa en herramientas de depuración como las que ofrecen navegadores o entornos de desarrollo como VS Code.
+
+### Ejemplo de Uso
+```javascript
+function calcularSuma(a, b) {
+  debugger; // Pausa la ejecución aquí
+  const suma = a + b;
+  return suma;
+}
+
+const resultado = calcularSuma(5, 10);
+console.log(resultado);
+```
+
+1. Cuando el programa llega a la línea `debugger`, la ejecución se pausa.
+2. Puedes inspeccionar los valores de `a`, `b` y `suma` en las herramientas de desarrollo antes de continuar.
+
+El uso de `debugger` es una herramienta poderosa para encontrar errores, pero se debe eliminar del código en producción para evitar interrupciones.
 
 ## Créditos
 
