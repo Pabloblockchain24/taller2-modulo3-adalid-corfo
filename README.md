@@ -163,7 +163,7 @@ En este proyecto, se utilizan las palabras clave `let` y `const` para declarar v
 
 La diferencia en el uso de let y const radica en la posibilidad de reasignar el valor de la variable. 
 
-## Utilización de debugger para rasteo de posibles errores
+## Utilización de debugger para rasteo de posibles errores y manejo de try/catch 
 
 En este proyecto, se utiliza el `debugger` para rastrear posibles errores dentro del código y analizar el flujo de ejecución. A continuación, se describe su uso y ejemplos.
 
@@ -186,6 +186,70 @@ console.log(resultado);
 2. Puedes inspeccionar los valores de `a`, `b` y `suma` en las herramientas de desarrollo antes de continuar.
 
 El uso de `debugger` es una herramienta poderosa para encontrar errores, pero se debe eliminar del código en producción para evitar interrupciones.
+
+### Manejo de Errores con `try/catch`
+
+El bloque `try/catch` es una estructura de control utilizada para manejar errores en JavaScript. Permite ejecutar un bloque de código y, si ocurre un error, capturarlo y manejarlo de manera adecuada sin que el programa se interrumpa abruptamente.
+
+#### ¿Cómo Funciona el `try/catch`?
+
+- El bloque `try` contiene el código que puede generar un error.
+- Si ocurre un error dentro del bloque `try`, se ejecuta el bloque `catch`, donde se puede manejar el error.
+- Si no ocurre un error, el bloque `catch` es ignorado.
+
+#### Ejemplo de Uso de `try/catch`
+
+```javascript
+function dividirNumeros(a, b) {
+  try {
+    if (b === 0) {
+      throw new Error("No se puede dividir por cero");
+    }
+    const resultado = a / b;
+    return resultado;
+  } catch (error) {
+    console.error(error.message); // Muestra el mensaje del error
+    return null;
+  }
+}
+
+const resultado = dividirNumeros(10, 0);
+console.log(resultado); // Muestra null
+```
+
+1. El bloque `try` contiene la lógica para dividir dos números.
+2. Si el divisor `b` es cero, se lanza un error con `throw`.
+3. El bloque `catch` captura el error y lo maneja, imprimiendo el mensaje de error en la consola y retornando `null` en lugar de una operación fallida.
+
+
+## Descripción de integración de prompts y como validar datos ingresados
+
+### Flujo de la Función `solicitarContacto`
+
+La función `solicitarContacto` solicita al usuario que ingrese tres datos: su nombre, correo electrónico y número de teléfono. Cada uno de estos datos es validado antes de ser aceptado.
+
+1. **Solicitar Nombre:**
+   - Se utiliza un `prompt` para pedir el nombre del usuario.
+   - Si el nombre está vacío o contiene números, se solicita nuevamente al usuario hasta que ingrese un nombre válido.
+   - La validación del nombre se realiza mediante la función `tieneNumeros`, que verifica que no haya números en el nombre ingresado.
+
+2. **Solicitar Correo Electrónico:**
+   - Se solicita al usuario que ingrese su correo electrónico mediante un `prompt`.
+   - Si el correo está vacío o no contiene el símbolo `@`, se solicita nuevamente hasta que se ingrese un correo válido.
+   - La validación del correo se realiza mediante la función `tieneArroba`, que asegura que el correo tenga el símbolo `@`.
+
+3. **Solicitar Teléfono:**
+   - Se solicita el número de teléfono al usuario, indicando el formato esperado (11 dígitos, comenzando con '569').
+   - Si el número está vacío o no cumple con el formato requerido, se solicita nuevamente.
+   - La validación del teléfono se realiza mediante la función `telefonoValido`, que verifica que el teléfono tenga 11 dígitos y sea un número.
+
+### Funciones de Validación
+
+- **`tieneNumeros(nombre)`**: Verifica si el nombre contiene números. Si encuentra un número, retorna `true`; de lo contrario, retorna `false`.
+- **`tieneArroba(email)`**: Verifica si el correo electrónico contiene el símbolo `@`. Retorna `true` si lo encuentra, de lo contrario, retorna `false`.
+- **`telefonoValido(telefono)`**: Verifica si el número de teléfono tiene exactamente 11 caracteres y si es un número. Retorna `true` si es válido, de lo contrario, `false`.
+
+
 
 ## Créditos
 
